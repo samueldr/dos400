@@ -39,6 +39,11 @@ A0:				 ;AN000;
 	 MOV	SP,OFFSET stck_beg ;AN000;setup local stack
 
 	 CALL	LOAD_MSG	   ;AN000;
+
+	 ; (2024) Check first, in case this is the appropriate floppy.
+	 CALL	 CHECK_DISKETTE  ;AN000;ensure INSTALL diskette in drive
+	 JNC	 DSKTOK 	 ;AN000;if so, continue
+
 	 MOV	AX,10		 ;AN000;insert SELECT diskette in drive A:
 	 CALL	DISPLAY_MSG	 ;AN000;
 
@@ -53,8 +58,6 @@ AGN:				 ;AN000;
 	 CALL	 DISPLAY_MSG	 ;AN000;
 	 JMP	 AGN		 ;AN000;try again
 INPOK:				 ;AN000;
-	 CALL	 CHECK_DISKETTE  ;AN000;ensure INSTALL diskette in drive
-	 JNC	 DSKTOK 	 ;AN000;if so, continue
 	 CALL	 CLEAR_SCREEN	 ;AN032;SEH
 	 MOV	 AX,11		 ;AN000;else, sound BELL
 	 CALL	 DISPLAY_MSG	 ;AN000;
