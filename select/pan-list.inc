@@ -189,3 +189,7 @@ NUM_SECOND	EQU	29	;AN000; SECOND
 STR_DEF_CP	EQU	30	;AN000; Default CodePage for the SELECT.DAT file
 STR_SWISS_KEYB	EQU	31	;AN000; Default SWISS Keyboard
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Make sure select.exe doesn't ask for the tool we don't even have the
+; sources for.
+NOSHELL EQU 1
