@@ -249,6 +249,9 @@ FIRST_DISK_SCREEN:						;AN000;
 	.IF < N_DISK_1 eq E_DISK_INV >				;AN000; if first fixed disk not present
 	   GOTO 		DATE_TIME_SCREEN		;AN000;    goto DATE_TIME screen
 	.ENDIF							;AN000;
+IFDEF ONEDISK							;
+	GOTO NO_BACKUP
+ENDIF
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ;  旼컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴커
@@ -320,6 +323,7 @@ MAKE_BACKUP_DISKETTE:						;AN000;
 	   .ENDIF						;AN000;
 	   CALL 		CURSOROFF			;AN000; set cursor off
 								;
+NO_BACKUP:
 	OR  SEL_FLG,INSTALLRW					;AN000; indicate INSTALL diskette is R/W
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

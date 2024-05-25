@@ -193,3 +193,8 @@ STR_SWISS_KEYB	EQU	31	;AN000; Default SWISS Keyboard
 ; Make sure select.exe doesn't ask for the tool we don't even have the
 ; sources for.
 NOSHELL EQU 1
+
+; Remove floppy juggling made unnecessary by ludicrously large 1.44MB drives,
+; and the lack of some features in the released sources.
+; (Added in 2024)
+ONEDISK EQU 1
