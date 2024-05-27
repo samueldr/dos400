@@ -197,6 +197,7 @@ GET_PARAMETERS: 						;AN000;
 ;  Note.User entered parameter values are not checked for validity.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SHELL_SCREEN:							;AN000;
+IFNDEF NOSHELL
 	.IF < F_SHELL eq E_SHELL_NO >				;AN000; if SHELL support is not required
 	.THEN							;AN000;
 	   GOTO 		FASTOPEN_SCREEN 		;AN000;    goto the next screen (KSAM)
@@ -218,6 +219,7 @@ SHELL_SCREEN:							;AN000;
 	.ELSE							;AN000;
 	   GOTO 		PROCESS_ESC_F3			;AN000; user entered ESC or F3, take action
 	.ENDIF							;AN000;
+ENDIF
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ;  旼컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴커
